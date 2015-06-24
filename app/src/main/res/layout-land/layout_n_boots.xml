@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="#ffffffff">
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.35"
+        android:layout_gravity="left">
+
+        <TextView
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:text="@string/n_boot_start_time"
+            android:textSize="30dp"
+            android:id="@+id/label_get_boot_time"
+            android:textColor="#ffff231a"
+            android:layout_gravity="center_horizontal" />
+
+        <TimePicker
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+            android:id="@+id/n_boot_time_start"
+            android:layout_gravity="top"
+            android:layout_weight="0.5"
+            android:foregroundGravity="left" />
+    </LinearLayout>
+    <View
+        android:layout_width="2dip"
+        android:layout_height="match_parent"
+        android:background="#ffa520ff"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal" >
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_active_period"
+            android:textColor="#ff000000"
+            android:textSize="20dp"
+            android:text="@string/n_boot_on_period"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.4" />
+
+            <EditText
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="#ffff5e3e"
+                android:ems="20"
+                android:id="@+id/active_period"
+                android:gravity="center"
+                android:background="#fff6ff22"
+                android:textSize="30dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_weight="0.2"
+                android:text="15" />
+
+            <TextView
+                android:layout_width="25dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:id="@+id/editText7"
+                android:text="@string/minute"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:gravity="top"
+                android:layout_weight="0.2" />
+
+
+<View
+    android:layout_width="match_parent"
+    android:layout_height="1dip"
+    android:background="#ffa520ff"/>
+
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/label_idle_period"
+            android:textColor="#ff000000"
+            android:textSize="20dp"
+            android:text="@string/n_boot_off_period"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.4" />
+        <EditText
+                android:layout_width="55dp"
+                android:layout_height="wrap_content"
+                android:inputType="number"
+                android:textColor="#ffff5e3e"
+                android:ems="30"
+                android:id="@+id/idle_period"
+                android:gravity="top|center"
+                android:layout_gravity="center"
+                android:background="#fff6ff22"
+                android:textSize="30dp"
+            android:layout_weight="0.2"
+            android:text="1" />
+
+            <TextView
+                android:layout_width="18dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/editText8"
+                android:text="@string/hour_long"
+                android:textColor="#ff000000"
+                android:textSize="20dp"
+                android:gravity="top"
+                android:layout_weight="0.25" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="2dip"
+        android:layout_height="match_parent"
+        android:background="#ffa520ff"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="0.35" >
+
+        <TextView
+            android:layout_width="163dp"
+            android:layout_height="wrap_content"
+            android:textSize="30dp"
+            android:text="@string/n_boot_end_time"
+            android:id="@+id/label_get_end_time"
+            android:textColor="#ff11a0ff"
+            android:layout_gravity="center_horizontal"
+            android:nestedScrollingEnabled="true" />
+
+
+        <TimePicker
+            android:layout_width="230dp"
+            android:layout_height="match_parent"
+
+            android:id="@+id/n_boot_time_end"
+            android:layout_gravity="top|left"
+            android:layout_weight="0.5"
+            android:nestedScrollingEnabled="true"
+            android:timePickerMode="clock" />
+    </LinearLayout>
+    <View
+        android:layout_width="2dip"
+        android:layout_height="match_parent"
+        android:background="#ffa520ff"/>
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="saveNBootData"
+            android:padding="5dp"
+            android:textSize="30dp"
+            android:layout_weight="0.18" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="51dp"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/no_change"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_orange_dark"
+            android:alpha="0.8"
+            android:capitalize="none"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="closeFragment"
+            android:padding="5dp"
+            android:layout_weight="0.16" />
+
+    </LinearLayout>
+
+</LinearLayout>

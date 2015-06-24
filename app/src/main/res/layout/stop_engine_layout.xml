@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff000000">
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/press_stop_engine"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/stop_engine_button"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textColor="#ffff181d"
+        android:focusable="true"
+        android:paddingBottom="10dp"
+        android:button="@android:color/holo_orange_light"
+        android:background="@drawable/shape_oval_green_large"
+        android:enabled="true"
+        android:textSize="30dp"
+        android:onClick="stopEngine" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff181d"
+        android:text="@string/return_home"
+        android:id="@+id/return_to_main"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold|italic"
+        android:background="@drawable/shape_oval_orange"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:onClick="closeFragment"
+        android:layout_weight="0.12" />
+
+
+</LinearLayout>
+

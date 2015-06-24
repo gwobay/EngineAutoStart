@@ -1,0 +1,99 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    tools:context="com.prod.intelligent7.engineautostart.SetProfileActivityFragment"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/line_pin">
+
+        <TextView android:text="@string/pin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="26dp"
+            android:id="@+id/label_pin" />
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#000000"
+            android:inputType="numberPassword"
+            android:id="@+id/password_set_phones"
+            android:textSize="26dp"
+            android:editable="true" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/line_phone1">
+    <TextView android:text="@string/phone1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26dp"
+        android:id="@+id/label_phone1" />
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:id="@+id/text_phone1"
+        android:textSize="26dp"
+        android:inputType="number"
+        android:editable="true" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/line_phone2">
+    <TextView android:text="@string/phone2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="26dp"
+        android:id="@+id/label_phone2" />
+
+        <Space
+            android:layout_width="20px"
+            android:layout_height="20px" />
+
+        <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#000000"
+        android:id="@+id/text_phone2"
+        android:textSize="26dp"
+        android:inputType="number"
+        android:editable="true" />
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/confirm"
+        android:id="@+id/confirm_sim"
+        android:textSize="20dp"
+        android:onClick="confirmOK"
+        android:gravity="center" />
+
+</LinearLayout>

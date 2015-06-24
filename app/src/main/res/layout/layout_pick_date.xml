@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1">
+
+    <DatePicker
+        android:layout_width="match_parent"
+        android:layout_height="136dp"
+        android:id="@+id/datePicker"
+        android:layout_weight="0.42"
+        android:startYear="2015" />
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#ffffcc00"
+    />
+    <TimePicker
+        android:layout_width="match_parent"
+        android:layout_height="222dp"
+        android:id="@+id/timePicker"
+        android:layout_gravity="bottom"
+        android:layout_weight="0.5" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="saveDateTime"
+            android:padding="5dp"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_phone_entry"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textColor="#ff25c0ff"
+            android:background="#fff4ff17"
+            android:alpha="0.8"
+            android:capitalize="words"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="closePicker"
+            android:padding="5dp" />
+
+    </LinearLayout>
+</LinearLayout>

@@ -1,0 +1,32 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PickActivity" >
+
+    <fragment
+        android:id="@+id/date_fragment"
+        android:name="com.prod.intelligent7.engineautostart.DatePickerFragment"
+        tools:layout="@layout/layout_n_boots_old"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+<!--
+    <fragment
+        android:id="@+id/time_fragment"
+        android:name="com.prod.intelligent7.engineautostart.DatePickerFragment"
+        tools:layout="@layout/layout_pick_time_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <fragment
+        android:id="@+id/number_fragment"
+        android:name="com.prod.intelligent7.engineautostart.DatePickerFragment"
+        tools:layout="@layout/layout_pick_time_end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+//-->
+
+</LinearLayout>

@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="compiled_at">2015/06/23 16:50</string>
+
+    <!-- for main page /-->
+    <string name="app_name">远程汽车调温系统</string>
+    <string name="welcome">欢迎大家使用这款新的车控APP\n请先设定车载机号码\n设定手机号码</string>
+    <string name="about">关于本机</string>
+    <string name="compilation_time">编译时间</string>
+
+    <string name="app_name_en">EngineAutoStart</string>
+    <string name="sim_setting">车载机号码设定</string>
+    <string name="pin_setting">车载机密码设定</string>
+    <string name="phone_numbers_setting">手机号码设定</string>
+    <string name="sim_change">车载机号码变更</string>
+    <string name="pin_change">车载机密码变更</string>
+    <string name="phone_numbers_change">手机号码变更</string>
+    <string name="warming_cooling_setting">冷/暖气设定</string>
+    <string name="daily_auto_start_setting">每日定时启动设定</string>
+    <string name="daily_multiple_start_setting">每日循环启动设定</string>
+    <string name="shut_down_engine">立即关闭启动</string>
+    <string name="start_engine">立即启动</string>
+    <string name="title_activity_set_code">设定号码设定</string>
+    <string name="title_activity_set_action">发送指令到发动机</string>
+    <string name="title_activity_schedule">预设引擎启动送出指令时刻</string>
+    <!-- common for all /-->
+
+    <string name="confirm">确认</string>
+    <string name="send">送出</string>
+    <string name="cancel">取消</string>
+
+    <!-- set sim  //-->
+    <string name="number">号码</string>
+
+    <!-- set pin  //-->
+    <string name="pin">车载机密码</string>
+
+    <string name="old_pin">旧密码</string>
+    <string name="new_pin">新密码</string>
+    <string name="confirm_new_pin">确认新密码</string>
+
+    <string name="wrong_pin">錯誤旧密码</string>
+    <string name="pin_not_consistent">新密碼不一致</string>
+    <string name="enter_old_pin">输入旧密码</string>
+    <string name="enter_new_pin">输入新密码</string>
+    <string name="pin_no_difference">新旧密碼一样</string>
+
+    <string name="wait_for_response">等待车载机回复</string>
+    <string name="good_response">车载机回复成功</string>
+    <string name="bad_response">车载机回复失败</string>
+    <string name="no_response">车载机无反应</string>
+    <string name="please_inform">请致电</string>
+    <string name="administration_number"> 0988-889-889</string>
+    <string name="understand">知悉</string>
+    <!-- set phones  //-->
+    <string name="phone1">手机号码一</string>
+    <string name="phone2">手机号码二</string>
+    <string name="phone_no_difference">新旧号碼一样</string>
+    <!-- set sim  //-->
+
+    <!-- act on heater /-->
+    <string name="heater">暖气</string>
+    <string name="air_condition">冷气</string>
+
+    <!-- act on engine start /-->
+    <string name="active_period">启动期间</string>
+    <!-- log /-->
+    <string name="action_log">车载机记录</string>
+    <string name="action_get_sim">查询号码</string>
+    <string name="action_get_pin">查询密码</string>
+    <string name="action_get_phones">查询手机号码</string>
+    <string name="show_sim">显示车载机号码</string>
+    <string name="show_pin">显示车载机密码</string>
+    <string name="show_phone2">显示手机号码</string>
+    <string name="sim">车载机号码</string>
+
+    <string name="phone">手机号码</string>
+    <string name="phone_numbers">手机号码</string>
+    <string name="action_get_recent1">查询最近1筆启动记录</string>
+    <string name="action_get_recent10">查询最近10筆记录</string>
+    <string name="action_get_all">查询记录</string>
+    <string name="action_get_failed10">查询最近10筆失敗记录</string>
+    <string name="action_get_last_failed">查询最近失敗记录</string>
+    <string name="action_clean_log">清除启动记录</string>
+    <string name="check_log">启动记录文件</string>
+    <string name="open_log">查询最近启动记录</string>
+    <string name="clear_log">清除启动记录</string>
+    <string name="confirm_to_clear_log">确认要清除启动记录?</string>
+    <string name="no_record_to_show">没有记录可显示</string>
+
+
+    <string name="send_to">傳送到</string>
+    <string name="got_from">接收自</string>
+    <string name="send2">送给</string>
+    <string name="receive_from">收到</string>
+    <string name="command">指令</string>
+    <string name="message">信息</string>
+    <!-- 0523 /-->
+
+    <!-- for action dialogs /-->
+    <string name="my_time_zone_en">Hongkong</string>
+    <string name="action_settings">Settings</string>
+    <string name="prod_server">220.134.85.189</string>
+    <string name="test_server">220.134.85.189</string>
+    <string name="backup_server">220.134.85.189</string>
+    <string name="backup_test_server">220.134.85.189</string>
+
+    <string name="port">9696</string>
+    <string name="heart_beat_interval">60</string>
+
+    <!-- for command key /-->
+
+
+    <string name="cmd_open_log">OPEN_LOG</string>
+    <string name="cmd_clean_log">CLEAN_LOG</string>
+    <string name="cmd_set_simm">SET_SIMM</string>
+    <string name="cmd_set_pin">SET_PIN</string>
+    <string name="cmd_set_phone">SET_PHONES</string>
+    <string name="cmd_select_warmer_cooler">SET_WARMER</string>
+    <string name="cmd_set_single_boot">SET_ONE_BOOT</string>
+    <string name="cmd_set_multiple_boot">SET_MULTIPLE_BOOT</string>
+    <string name="cmd_start_now">CMD_START_NOW</string>
+    <string name="cmd_stop_now">CMD_STOP_NOW</string>
+    <!-- end command key /-->
+    <!-- data entry field label /-->
+    <string name="label_open_log">OPEN_LOG</string>
+    <string name="label_clean_log">CLEAN_LOG</string>
+    <string name="label_set_simm">SET_SIMM</string>
+    <string name="label_set_pin">SET_PIN</string>
+    <string name="label_set_phone">SET_PHONES</string>
+    <string name="label_select_warmer_cooler">SET_WARMER</string>
+    <string name="label_set_single_boot">SET_ONE_BOOT</string>
+    <string name="label_set_multiple_boot">SET_MULTIPLE_BOOT</string>
+    <string name="label_start_now">label_START_NOW</string>
+    <string name="label_stop_now">label_STOP_NOW</string>
+    <!-- end of label     /-->
+    <string name="back_to_main">转回主屏幕</string>
+    <string name="numeric_pad">输入鍵盤</string>
+    <string name="confirm_this">確認</string>
+    <!-- get sim, pin, phone /-->
+    <string name="bad_data_entry">输入錯誤! 請更正!</string>
+    <string name="label_get_sim">输入 SIMM</string>
+    <string name="label_get_pin">输入密码</string>
+    <string name="hint_get_phone">在此输入手机号码</string>
+    <string name="label_get_phone">输入手机号码</string>
+    <string name="label_get_phone1">输入手机号码1</string>
+    <string name="label_get_phone2">输入手机号码2</string>
+
+    <string name="too_short">号码过短</string>
+
+    <!-- end sim, pin, phone /-->
+    <!-- warmer / cooler aircondition/-->
+    <string name="start">启动</string>
+    <string name="start_warmer">启动暖气</string>
+    <string name="start_air_condition">启动冷气</string>
+    <string name="unavailable">(暂时无法使用)</string>
+    <string name="press_start_warmer">按下此启动暖气</string>
+
+    <string name="press_start_air_condition">按下此启动冷气</string>
+    <!-- end warmer / cooler aircondition/-->
+    <!-- 每日一次启动设定
+    <string name="week_day">日期</string>
+    <string name="start_time">时刻</string>
+    <string name="active_time">期间\n(分钟)</string>
+    <string name="idle_time">间隔\n(小时)</string>
+    <string name="open">开启</string>
+    <string name="closed">关闭</string>
+                    -->
+    <!-- 每日循环启动设定-->
+    <string name="week_day">日期</string>
+    <string name="start_time">时刻</string>
+    <string name="active_time">期间\n(分钟)</string>
+    <string name="idle_time">间隔\n(小时)</string>
+    <string name="open">开启</string>
+    <string name="closed">关闭</string>
+    <!-- 启动设定-->
+    <string name="start_now">立即启动引擎</string>
+    <!-- 关闭-->
+    <string name="stop_engine">立即关闭引擎</string>
+    <string name="shut_down_air_condition">立即关闭冷气</string>
+
+
+    <string name="last4">按下此\n(启动冷气)</string>
+    <!-- engine / boot 1 or N/-->
+    <string name="n_boot_start_time">选择多次启动开始时刻</string>
+    <string name="n_boot_active_period">输入每次启动持续时程</string>
+    <string name="n_boot_idle_period">输入每次中断休息间距</string>
+    <string name="n_boot_on_period">每次启动持续时程</string>
+    <string name="n_boot_off_period">每次中断休息间距</string>
+
+    <string name="n_boot_end_time">选择多次启动终止时刻</string>
+    <string name="one_boot_set_date">按此预设下次启动日期</string>
+    <string name="one_boot_set_time">按此预设下次启动时刻</string>
+    <string name="label_one_boot_set_date">下次启动日期</string>
+    <string name="label_one_boot_set_time">下次启动时刻</string>
+
+    <string name="one_boot_start_date">选择一次启动开始日期</string>
+    <string name="one_boot_start_time">选择一次启动开始时刻</string>
+    <string name="one_boot_active_period">输入启动持续时程</string>
+    <string name="schedule_is_arranged">启动时程已经安排</string>
+
+    <string name="sunday">周日</string>
+    <string name="monday">周一</string>
+    <string name="tuesday">周二</string>
+    <string name="wednesday">周三</string>
+    <string name="thursday">周四</string>
+    <string name="friday">周五</string>
+    <string name="saturday">周六</string>
+
+    <string name="year">年</string>
+    <string name="month">月</string>
+    <string name="day">日</string>
+    <string name="week">星期</string>
+    <string name="minute">分</string>
+    <string name="hour">时</string>
+    <string name="minute_long">分钟</string>
+    <string name="hour_long">小时</string>
+    <string name="press_start_engine">按下此启动引擎</string>
+
+    <string name="press_stop_engine">按下此停止引擎</string>
+
+    <string name="return_home">转回主屏幕</string>
+    <!-- end  engine / boot 1 or N/-->
+    <string-array name="pick_year">
+        <item>15</item>
+        <item>16</item>
+        <item>17</item>
+        <item>18</item>
+        <item>19</item>
+        <item>20</item>
+        <item>21</item>
+        <item>22</item>
+    </string-array>
+    <string-array name="pick_month">
+        <item>01</item>
+        <item>02</item>
+        <item>03</item>
+        <item>04</item>
+        <item>05</item>
+        <item>06</item>
+        <item>07</item>
+        <item>08</item>
+        <item>09</item>
+        <item>10</item>
+        <item>11</item>
+        <item>12</item>
+    </string-array>
+    <string-array name="week_days">
+        <item>周日</item>
+        <item>周一</item>
+        <item>周二</item>
+        <item>周三</item>
+        <item>周四</item>
+        <item>周五</item>
+        <item>周六</item>
+
+
+    </string-array>
+    <!-- log related /-->
+    <string name="daemon_done">通信系统结束</string>
+
+    <!-- end of log /-->
+    <string name="abc_action_bar_home_description">转到主屏幕</string>
+    <string name="abc_action_bar_home_description_format">%1$s：%2$s</string>
+    <string name="abc_action_bar_home_subtitle_description_format">%1$s - %2$s：%3$s</string>
+    <string name="abc_action_bar_up_description">转到上一层级</string>
+    <string name="abc_action_menu_overflow_description">更多选项</string>
+    <string name="abc_action_mode_done">完成</string>
+    <string name="abc_activity_chooser_view_see_all">查看全部</string>
+    <string name="abc_activitychooserview_choose_application">选择应用</string>
+    <string name="abc_searchview_description_clear">清除查询</string>
+    <string name="abc_searchview_description_query">搜索查询</string>
+    <string name="abc_searchview_description_search">搜索</string>
+    <string name="abc_searchview_description_submit">提交查询</string>
+    <string name="abc_searchview_description_voice">语音搜索</string>
+    <string name="abc_shareactionprovider_share_with">分享方式</string>
+    <string name="abc_shareactionprovider_share_with_application">通过%s分享</string>
+
+
+    <!--
+    Just in case anybody finds this, there's a nicer alternative that's not documented (I tripped over it after searching for hours, and finally found it in the bug list for the Android SDK itself). You CAN include raw HTML in strings.xml, as long as you wrap it in
+
+<![CDATA[ ...raw html... ]]>
+Example:
+
+<string name="nice_html">
+<![CDATA[
+<p>This is a html-formatted string with <b>bold</b> and <i>italic</i> text</p>
+<p>This is another paragraph of the same string.</p>
+]]>
+</string>
+Then, in your code:
+
+TextView foo = (TextView)findViewById(R.id.foo);
+foo.setText(Html.fromHtml(getString(R.string.nice_html)));
+IMHO, this is several orders of magnitude nicer to work with :-)
+
+shareimprove this answer
+answered May 28 '11 at 3:52
+
+Bitbang3r
+3,36931017
+19
+Just to add, you can also backslash-escape apostrophes/single-quotes inside the CDATA block, so you can have things like <b>can\'t</b> instead of the infinitely-uglier <b>can&apos;t</b> –  Bitbang3r Nov 6 '11 at 17:28
+
+/-->
+
+</resources>

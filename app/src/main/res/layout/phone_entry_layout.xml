@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+        android:layout_width="match_parent" android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:background="#ff000000">
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_get_phone1"
+        android:id="@+id/textView"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        android:layout_weight="0.5"
+        android:textColor="#ffffffff"
+        android:focusable="false" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffccbbff"
+        android:layout_height="1dip"
+        android:layout_weight="0.01" />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/phone1"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:phoneNumber="true"
+        android:theme="@style/Base.TextAppearance.AppCompat.Inverse"
+        android:hint="@string/hint_get_phone"
+        android:linksClickable="false"
+        android:autoText="false"
+        android:editable="true"
+        android:textColor="#ffff181d"
+        android:focusable="true" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/label_get_phone2"
+        android:id="@+id/textView2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:textStyle="bold|italic"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:textColor="#ffffffff" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffccbbff"
+        android:layout_height="1dip"
+        android:layout_weight="0.01" />
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="number"
+        android:ems="10"
+        android:id="@+id/phone2"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.5"
+        android:textSize="30dp"
+        android:textStyle="normal"
+        android:phoneNumber="true"
+        android:theme="@style/Base.TextAppearance.AppCompat.Inverse"
+        android:hint="@string/hint_get_phone"
+        android:gravity="center"
+        android:textColor="#ffff110f"
+        android:focusable="true" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="savePhoneNumber"
+            android:padding="5dp"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_phone_entry"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_orange_light"
+            android:alpha="0.8"
+            android:capitalize="words"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="closeFragment"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

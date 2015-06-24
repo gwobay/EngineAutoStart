@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff000000">
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/press_start_warmer"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/start_warmer_button"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textColor="#ffff181d"
+        android:focusable="true"
+        android:paddingBottom="10dp"
+        android:button="@android:color/holo_orange_light"
+        android:background="@drawable/shape_oval_green_large"
+        android:enabled="true"
+        android:textSize="30dp"
+        android:onClick="startWarmer" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="5dip"
+        android:layout_weight="0.2" />
+    <Button
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff181d"
+        android:text="@string/return_home"
+        android:id="@+id/return_to_main"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold|italic"
+        android:background="@drawable/shape_oval_orange"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:onClick="startAirCondition"
+        android:layout_weight="0.12" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="5dip"
+        android:layout_weight="0.2" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff181d"
+        android:text="@string/press_start_air_condition"
+        android:id="@+id/label_start_air_condition"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.15"
+        android:textStyle="bold|italic"
+        android:background="#fff5ff21"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:onClick="startAirCondition" />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/unavailable"
+        android:background="#fff5ff21"
+        android:id="@+id/un_available"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.25"
+        android:textStyle="bold|italic"
+        android:gravity="top|center"
+        android:textSize="20dp"
+        android:textColor="#ffff181d" />
+
+
+
+</LinearLayout>
+

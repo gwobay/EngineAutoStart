@@ -1,0 +1,180 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityFragment"
+    android:orientation="vertical"
+    android:gravity="center|fill"
+
+    android:id="@+id/main_page">
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- TableRow android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+
+            <Button android:id="@+id/welcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:textColor="#700"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:text="@string/app_name" />
+
+        </TableRow>   /-->
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right">
+            <TextView android:id="@+id/null_1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#700"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:text="  " />
+            <Switch
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/check_log"
+                android:id="@+id/switch1"
+                android:onClick="checkLog"
+                android:contentDescription="turn on/off logging"
+                android:textAlignment="gravity"
+                android:textSize="10sp"
+                android:textStyle="bold|italic"
+                android:gravity="right" />
+        </TableRow>
+    </TableLayout>
+    <GridLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="top"
+        android:columnCount="4"
+        android:rowCount="2"
+        android:rowOrderPreserved="true">
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/sim_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/set_sim"
+            android:onClick="setSimNumber"
+            android:layout_row="0"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_column="0"
+            android:layout_rowWeight="1" />
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/phone_numbers_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/add_phone_number"
+            android:onClick="setPhoneNumbers"
+            android:layout_row="0"
+            android:layout_column="1" />
+
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/pin_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/set_pin"
+            android:onClick="setPinNumber"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_rowWeight="1"
+            android:layout_gravity="top" />
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/warming_cooling_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/warming_cooling"
+            android:onClick="selectWarmerCooler"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_rowWeight="1"
+            android:layout_gravity="top" />
+
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/daily_auto_start_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/set_start_1time"
+            android:onClick="setAutoStartTime"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_rowWeight="1"
+            android:layout_gravity="top" />
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/daily_multiple_start_setting"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/set_multiple_start"
+            android:onClick="setMultipleStart"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_rowWeight="1"
+            android:layout_gravity="top" />
+
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/shut_down_engine"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/shut_down"
+            android:onClick="shutDownEngine"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_rowWeight="1" />
+
+        <Button
+            android:layout_width="@dimen/ls_main_page_button_width"
+            android:layout_height="@dimen/ls_main_page_button_height"
+            android:minHeight="@dimen/ls_main_page_button_height"
+            android:layout_weight="0.5"
+            android:text="@string/start_engine"
+            android:textSize="@dimen/main_page_text_size"
+            android:id="@+id/start_engine"
+            android:onClick="startEngine"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_rowWeight="1"  />
+
+
+    </GridLayout>
+
+
+</LinearLayout>
+

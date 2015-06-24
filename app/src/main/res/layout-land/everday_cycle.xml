@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:orientation="vertical" android:layout_width="fill_parent" android:layout_height="fill_parent"
+  xmlns:android="http://schemas.android.com/apk/res/android">
+    <HorizontalScrollView android:layout_width="wrap_content" android:layout_height="246.0dip">
+        <LinearLayout android:orientation="horizontal" android:layout_width="wrap_content" android:layout_height="wrap_content">
+            <TableLayout android:background="#ff000000" android:layout_width="wrap_content" android:layout_height="wrap_content" android:stretchColumns="*">
+                <TableRow android:background="#ffffffff" android:layout_margin="1.0dip">
+                    <!--
+
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_week" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@array/week_days" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_tue" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_wed" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_thu" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_fri" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_sat" android:width="120.0dip" />
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_sun" android:width="120.0dip" />
+                </TableRow>
+                <TableRow android:background="#ffffffff" android:layout_margin="1.0dip">
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_time" android:width="120.0dip" />
+                    <TextView android:id="@id/cs1" android:tag="1" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs2" android:tag="2" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs3" android:tag="3" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs4" android:tag="4" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs5" android:tag="5" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs6" android:tag="6" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cs0" android:tag="0" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                </TableRow>
+                <TableRow android:background="#ffffffff" android:layout_margin="1.0dip">
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_period" android:width="120.0dip" />
+                    <TextView android:id="@id/cr1" android:tag="1" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr2" android:tag="2" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr3" android:tag="3" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr4" android:tag="4" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr5" android:tag="5" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr6" android:tag="6" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/cr0" android:tag="0" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                </TableRow>
+                <TableRow android:background="#ffffffff" android:layout_margin="1.0dip">
+                    <TextView android:layout_height="60.0dip" android:text="@string/everydaycycle_interval" android:width="120.0dip" />
+                    <TextView android:id="@id/ce1" android:tag="1" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce2" android:tag="2" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce3" android:tag="3" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce4" android:tag="4" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce5" android:tag="5" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce6" android:tag="6" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                    <TextView android:id="@id/ce0" android:tag="0" android:clickable="true" android:layout_height="60.0dip" android:text="" android:width="120.0dip" android:onClick="onClick" />
+                //-->
+
+                </TableRow>
+            </TableLayout>
+        </LinearLayout>
+    </HorizontalScrollView>
+</LinearLayout>

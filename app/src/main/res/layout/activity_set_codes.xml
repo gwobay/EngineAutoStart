@@ -1,0 +1,7 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/set_profile_fragment"
+    tools:context="com.prod.intelligent7.engineautostart.SetProfileActivity"
+    tools:ignore="MergeRootFrame"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />

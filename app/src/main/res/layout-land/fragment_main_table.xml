@@ -1,0 +1,171 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivityFragment"
+    android:orientation="vertical"
+    android:gravity="center|fill"
+    android:weightSum="1">
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TableRow android:layout_width="match_parent"
+            android:layout_height="fill_parent"
+            android:layout_weight="1" >
+
+
+            <Button android:id="@+id/welcome"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="right"
+                android:textColor="#700"
+                android:textSize="20sp"
+                android:textStyle="italic"
+                android:text="@string/app_name" />
+
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_gravity="right">
+            <TextView android:id="@+id/null_1"
+                android:layout_height="wrap_content"
+                android:layout_gravity="left"
+                android:textColor="#700"
+                android:textSize="10sp"
+                android:textStyle="italic"
+                android:text="  " />
+            <Switch
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="0.5"
+                android:text="@string/check_log"
+                android:id="@+id/switch1"
+                android:onClick="checkLog"
+                android:contentDescription="turn on/off logging"
+                android:textAlignment="gravity"
+                android:textSize="10sp"
+                android:textStyle="bold|italic"
+                android:gravity="right" />
+        </TableRow>
+    </TableLayout>
+
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"></TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="137dp"
+        android:stretchColumns="@android:string/yes">
+
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/sim_setting"
+                android:textSize="18sp"
+                android:id="@+id/set_sim"
+                android:onClick="setSimNumber" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/phone_numbers_setting"
+                android:textSize="18sp"
+                android:id="@+id/add_phone_number"
+                android:onClick="setPhoneNumbers" />
+
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/pin_setting"
+                android:textSize="18sp"
+                android:id="@+id/set_pin"
+                android:onClick="setPinNumber"/>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/warming_cooling_setting"
+                android:textSize="18sp"
+                android:id="@+id/warming_cooling"
+                android:onClick="selectWarmerCooler" />
+
+        </TableRow>
+
+    </TableLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="fill_parent" >
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/daily_auto_start_setting"
+                android:textSize="18sp"
+                android:id="@+id/button9"
+                android:onClick="setAutoStartTime" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/daily_multiple_start_setting"
+                android:textSize="18sp"
+                android:id="@+id/button10"
+                android:onClick="setMultipleStart" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/shut_down_engine"
+                android:textSize="18sp"
+                android:id="@+id/button11"
+                android:onClick="shutDownEngine" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:minHeight="120dp"
+                android:layout_weight="0.25"
+                android:text="@string/start_engine"
+                android:textSize="18sp"
+                android:id="@+id/button12"
+                android:onClick="startEngine" />
+        </TableRow>
+    </TableLayout>
+
+
+</LinearLayout>
+

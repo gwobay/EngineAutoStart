@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/layout_1boot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/one_boot_start_date"
+            android:textSize="25dp"
+            android:id="@+id/label_get_boot_date"
+            android:textColor="#ffff231a"
+            android:gravity="center" />
+
+        <DatePicker
+            android:layout_width="match_parent"
+            android:layout_height="222dp"
+            android:id="@+id/one_boot_date"
+            android:layout_gravity="top|right"
+            android:layout_weight="0.5" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#ffa520ff"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.35" >
+
+        <TextView
+            android:layout_width="54dp"
+            android:layout_height="215dp"
+            android:layout_gravity="left|top"
+            android:textSize="25dp"
+            android:text="@string/one_boot_start_time"
+            android:id="@+id/label_get_boot_time"
+            android:textColor="#ffff231a" />
+
+
+        <TimePicker
+            android:layout_width="match_parent"
+            android:layout_height="222dp"
+            android:id="@+id/one_boot_time"
+            android:layout_gravity="top|right"
+            android:layout_weight="0.5" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#ffa520ff" />
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.06"
+            android:layout_gravity="left"
+            android:id="@+id/label_last4"
+            android:textColor="#ff000000"
+            android:textSize="25dp"
+            android:text="@string/one_boot_active_period" />
+
+        <EditText
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="#ffff5e3e"
+            android:ems="30"
+            android:id="@+id/last4"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:background="#fff6ff22"
+            android:textSize="30dp"
+            android:text="15" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_gravity="left|bottom"
+            android:id="@+id/editText7"
+            android:text="@string/minute"
+            android:textColor="#ff000000"
+            android:textSize="20dp"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dip"
+        android:background="#ffa520ff"/>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/confirm_button"
+            android:gravity="top"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="save1BootData"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_entry"
+            android:layout_weight="0.5"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_orange_dark"
+            android:alpha="0.8"
+            android:capitalize="words"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="doneActivity"
+            android:gravity="top" />
+
+    </LinearLayout>
+
+</LinearLayout>

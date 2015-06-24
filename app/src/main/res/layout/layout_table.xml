@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<GridLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:columnCount="2"
+        android:rowCount="4"
+    android:rowOrderPreserved="true"
+    android:touchscreenBlocksFocus="true"
+    android:useDefaultMargins="false">
+
+     <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.5"
+            android:text="@string/sim_setting"
+            android:textSize="18sp"
+            android:id="@+id/set_sim"
+            android:onClick="setSimNumber"
+        android:layout_row="0"
+            android:minHeight="120dp"
+        android:layout_column="0"
+        android:layout_rowWeight="1" />
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/phone_numbers_setting"
+            android:textSize="18sp"
+            android:id="@+id/add_phone_number"
+            android:onClick="setPhoneNumbers"
+        android:layout_row="0"
+        android:layout_column="1" />
+
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/pin_setting"
+            android:textSize="18sp"
+            android:id="@+id/set_pin"
+            android:onClick="setPinNumber"
+            android:layout_row="1"
+            android:layout_column="0"
+            android:layout_rowWeight="1"/>
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/warming_cooling_setting"
+            android:textSize="18sp"
+            android:id="@+id/warming_cooling"
+            android:onClick="selectWarmerCooler"
+            android:layout_row="1"
+            android:layout_column="1"
+            android:layout_rowWeight="1"/>
+
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/daily_auto_start_setting"
+            android:textSize="18sp"
+            android:id="@+id/set_start_1time"
+            android:onClick="setAutoStartTime"
+            android:layout_row="2"
+            android:layout_column="0"
+            android:layout_rowWeight="1" />
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/daily_multiple_start_setting"
+            android:textSize="18sp"
+            android:id="@+id/set_multiple_start"
+            android:onClick="setMultipleStart"
+            android:layout_row="2"
+            android:layout_column="1"
+            android:layout_rowWeight="1" />
+
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/shut_down_engine"
+            android:textSize="18sp"
+            android:id="@+id/shut_down"
+            android:onClick="shutDownEngine"
+            android:layout_row="3"
+            android:layout_column="0"
+            android:layout_rowWeight="1" />
+
+        <Button
+            android:layout_width="185dp"
+            android:layout_height="wrap_content"
+            android:minHeight="120dp"
+            android:layout_weight="0.5"
+            android:text="@string/start_engine"
+            android:textSize="18sp"
+            android:id="@+id/start_engine"
+            android:onClick="startEngine"
+            android:layout_row="3"
+            android:layout_column="1"
+            android:layout_rowWeight="1"  />
+
+
+</GridLayout>
+

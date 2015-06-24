@@ -1,0 +1,44 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <item android:id="@+id/action_on_log"
+        android:title="@string/action_log"
+
+    android:icon="@drawable/cute_clock42x42"
+        android:orderInCategory="1"
+        app:showAsAction="ifRoom|withText">
+        <!--android:icon="@drawable/open_log42x42" /-->
+        <menu>
+
+            <!-- not now
+            <item android:id="@+id/action_get_sim"
+                android:title="@string/action_get_sim" />
+            <item android:id="@+id/action_get_pin"
+                android:title="@string/action_get_pin" />
+             <item android:id="@+id/action_get_phones"
+                android:title="@string/action_get_phones" />
+
+
+            <item android:id="@+id/action_get_recent1"
+                android:title="@string/action_get_recent1" />
+            <item android:id="@+id/action_get_recent10"
+                android:title="@string/action_get_recent10" />
+            <item android:id="@+id/action_get_last_failed"
+                android:title="@string/action_get_last_failed" />
+            /-->
+            <item android:id="@+id/action_get_all"
+                android:title="@string/action_get_all" />
+            <item android:id="@+id/action_clean_log"
+                android:title="@string/action_clean_log" />
+            <item android:id="@+id/action_about"
+                android:title="@string/about" />
+        </menu>
+
+    </item>
+    <!-- item android:id="@+id/action_settings"
+        android:title="@string/action_settings"
+        android:orderInCategory="100"
+        app:showAsAction="never" /-->
+</menu>

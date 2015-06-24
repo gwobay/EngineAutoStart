@@ -1,0 +1,199 @@
+<resources>
+
+    <string name="compiled_at">2015/06/23 16:50</string>
+
+    <string name="app_name">EngineAutoStart</string>
+
+    <string name="welcome">welcome</string>
+    <string name="about">About</string>
+    <string name="compilation_time">compilation_time</string>
+
+    <string name="app_name_en">EngineAutoStart</string>
+    <string name="my_time_zone_en">Hongkong</string>
+    <string name="action_settings">Settings</string>
+    <string name="prod_server">220.134.85.189</string>
+    <string name="test_server">220.134.85.189</string>
+    <string name="backup_server">220.134.85.189</string>
+    <string name="backup_test_server">220.134.85.189</string>
+
+    <string name="port">9696</string>
+    <string name="heart_beat_interval">60</string>
+    <!-- for command key /-->
+    <string name="cmd_open_log">OPEN_LOG</string>
+    <string name="cmd_clean_log">CLEAN_LOG</string>
+    <string name="cmd_set_simm">SET_SIMM</string>
+    <string name="cmd_set_pin">SET_PIN</string>
+    <string name="cmd_set_phone">SET_PHONES</string>
+    <string name="cmd_select_warmer_cooler">SET_WARMER</string>
+    <string name="cmd_set_single_boot">SET_ONE_BOOT</string>
+    <string name="cmd_set_multiple_boot">SET_MULTIPLE_BOOT</string>
+    <string name="cmd_start_now">CMD_START_NOW</string>
+    <string name="cmd_stop_now">CMD_STOP_NOW</string>
+    <!-- end command key /-->
+
+    <!-- data entry field label /-->
+    <string name="label_open_log">OPEN_LOG</string>
+    <string name="label_clean_log">CLEAN_LOG</string>
+    <string name="label_set_simm">SET_SIMM</string>
+    <string name="label_set_pin">SET_PIN</string>
+    <string name="label_set_phone">SET_PHONES</string>
+    <string name="label_select_warmer_cooler">SET_WARMER</string>
+    <string name="label_set_single_boot">SET_ONE_BOOT</string>
+    <string name="label_set_multiple_boot">SET_MULTIPLE_BOOT</string>
+    <string name="label_start_now">label_START_NOW</string>
+    <string name="label_stop_now">label_STOP_NOW</string>
+    <!-- end of label     /-->
+
+    <!-- get sim, pin, phone /-->
+    <string name="bad_data_entry">Bad Data! Please Correct It!</string>
+    <string name="label_get_sim">ENTER_SIMM</string>
+    <string name="label_get_pin">ENTER_PIN</string>
+    <string name="label_get_phone">ENTER_PHONE</string>
+    <string name="phone_numbers">phone numbers</string>
+    <string name="wait_for_response">wait_for_response</string>
+    <string name="good_response">good_response</string>
+    <string name="bad_response">bad_response</string>
+    <string name="no_response">no_response</string>
+    <string name="please_inform">please_inform</string>
+    <string name="understand">ok</string>
+    <string name="administration_number"> 0988-889-889</string>
+    <!-- log related /-->
+    <string name="daemon_done">daemon done</string>
+    <string name="schedule_is_arranged">schedule_is_arranged</string>
+    <string name="no_record_to_show">no record to show</string>
+    <string name="action_get_all">get_all</string>
+
+    <!-- end of log /-->
+    <string name="sim_setting">haha</string>
+    <string name="pin_setting">haha</string>
+    <string name="phone_numbers_setting">haha</string>
+    <string name="sim_change">haha</string>
+    <string name="pin_change">haha</string>
+    <string name="phone_numbers_change">haha</string>
+    <string name="warming_cooling_setting">haha</string>
+    <string name="daily_auto_start_setting">haha</string>
+    <string name="daily_multiple_start_setting">haha</string>
+    <string name="shut_down_engine">haha</string>
+    <string name="start_engine">haha</string>
+    <string name="action_log">haha</string>
+    <string name="action_get_sim">haha</string>
+    <string name="action_get_pin">haha</string>
+    <string name="action_get_phones">haha</string>
+    <string name="show_sim">haha</string>
+    <string name="show_pin">haha</string>
+    <string name="show_phone2">haha</string>
+    <string name="sim">haha</string>
+    <string name="pin">haha</string>
+    <string name="phone2">haha</string>
+    <string name="action_get_recent1">haha</string>
+    <string name="action_get_recent10">haha</string>
+    <string name="action_get_failed10">haha</string>
+    <string name="action_get_last_failed">haha</string>
+    <string name="action_clean_log">haha</string>
+    <string name="check_log">haha</string>
+    <string name="open_log">haha</string>
+    <string name="clear_log">haha</string>
+    <string name="confirm_to_clear_log">haha</string>
+    <string name="send2">haha</string>
+    <string name="receive_from">haha</string>
+    <string name="command">haha</string>
+    <string name="message">haha</string>
+    <string name="confirm">haha</string>
+    <string name="send">haha</string>
+    <string name="cancel">haha</string>
+    <string name="back_to_main">haha</string>
+    <string name="numeric_pad">haha</string>
+    <string name="confirm_this">haha</string>
+    <string name="hint_get_phone">haha</string>
+    <string name="label_get_phone1">haha</string>
+    <string name="label_get_phone2">haha</string>
+    <string name="old_pin">haha</string>
+    <string name="wrong_pin">haha</string>
+    <string name="pin_not_consistent">haha</string>
+    <string name="enter_old_pin">haha</string>
+    <string name="enter_new_pin">haha</string>
+    <string name="confirm_new_pin">haha</string>
+    <string name="start">haha</string>
+    <string name="start_warmer">haha</string>
+    <string name="start_air_condition">haha</string>
+    <string name="unavailable">haha</string>
+    <string name="press_start_warmer">haha</string>
+    <string name="press_start_air_condition">haha</string>
+    <string name="n_boot_start_time">haha</string>
+    <string name="n_boot_active_period">haha</string>
+    <string name="n_boot_idle_period">haha</string>
+    <string name="n_boot_on_period">haha</string>
+    <string name="n_boot_off_period">haha</string>
+    <string name="n_boot_end_time">haha</string>
+    <string name="one_boot_set_date">haha</string>
+    <string name="one_boot_set_time">haha</string>
+    <string name="label_one_boot_set_date">haha</string>
+    <string name="label_one_boot_set_time">haha</string>
+    <string name="one_boot_start_date">haha</string>
+    <string name="one_boot_start_time">haha</string>
+    <string name="one_boot_active_period">haha</string>
+    <string name="year">haha</string>
+    <string name="month">haha</string>
+    <string name="day">haha</string>
+    <string name="week">haha</string>
+    <string name="minute">haha</string>
+    <string name="hour">haha</string>
+    <string name="minute_long">haha</string>
+    <string name="hour_long">haha</string>
+    <string name="press_start_engine">haha</string>
+    <string name="press_stop_engine">haha</string>
+    <string name="return_home">haha</string>
+    <string name="pick_year">haha</string>
+    <string name="pick_month">haha</string>
+    <string name="week_day">haha</string>
+    <string name="abc_action_bar_home_description">haha</string>
+    <string name="abc_action_bar_home_description_format">haha</string>
+    <string name="abc_action_bar_home_subtitle_description_format">haha</string>
+    <string name="abc_action_bar_up_description">haha</string>
+    <string name="abc_action_menu_overflow_description">haha</string>
+    <string name="abc_action_mode_done">haha</string>
+    <string name="abc_activity_chooser_view_see_all">haha</string>
+    <string name="abc_activitychooserview_choose_application">haha</string>
+    <string name="abc_searchview_description_clear">haha</string>
+    <string name="abc_searchview_description_query">haha</string>
+    <string name="abc_searchview_description_search">haha</string>
+    <string name="abc_searchview_description_submit">haha</string>
+    <string name="abc_searchview_description_voice">haha</string>
+    <string name="abc_shareactionprovider_share_with">haha</string>
+    <string name="abc_shareactionprovider_share_with_application">haha</string>
+
+
+    <string name="title_activity_set_code">haha</string>
+    <string name="title_activity_set_action">haha</string>
+    <string name="title_activity_schedule">haha</string>
+    <string name="number">haha</string>
+    <string name="new_pin">haha</string>
+    <string name="pin_no_difference">haha</string>
+    <string name="phone1">haha</string>
+    <string name="phone_no_difference">haha</string>
+    <string name="heater">haha</string>
+    <string name="air_condition">haha</string>
+    <string name="active_period">haha</string>
+    <string name="phone">haha</string>
+    <string name="send_to">haha</string>
+    <string name="got_from">haha</string>
+    <string name="start_time">haha</string>
+    <string name="active_time">haha</string>
+    <string name="idle_time">haha</string>
+    <string name="open">haha</string>
+    <string name="closed">haha</string>
+    <string name="start_now">haha</string>
+    <string name="stop_engine">haha</string>
+    <string name="shut_down_air_condition">haha</string>
+    <string name="last4">haha</string>
+    <string name="sunday">haha</string>
+    <string name="monday">haha</string>
+    <string name="tuesday">haha</string>
+    <string name="wednesday">haha</string>
+    <string name="thursday">haha</string>
+    <string name="friday">haha</string>
+    <string name="saturday">haha</string>
+    <string name="week_days">haha</string>
+    <string name="too_short">haha</string>
+
+</resources>

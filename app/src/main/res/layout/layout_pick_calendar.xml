@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="350dp" android:layout_height="wrap_content"
+    android:weightSum="1"
+    android:id="@+id/calendar"
+    android:orientation="vertical"
+    android:background="#ffffffff">
+
+    <CalendarView
+        android:layout_width="match_parent"
+        android:layout_height="460dp"
+        android:id="@+id/calendarView"
+        android:layout_weight="0.96"
+        android:focusableInTouchMode="true" />
+    <!--
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffffffff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="setCalendarDate"
+            android:padding="5dp"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.3" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_phone_entry"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textColor="#ff25c0ff"
+            android:background="#fff46f57"
+            android:alpha="0.8"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="noAction"
+            android:padding="5dp" />
+
+    </LinearLayout>
+    /-->
+</LinearLayout>

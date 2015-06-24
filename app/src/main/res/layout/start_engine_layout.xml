@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff000000">
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|right"
+        android:layout_weight="0.5">
+
+        <TextView
+            android:layout_width="170dp"
+            android:layout_height="match_parent"
+            android:layout_gravity="left"
+            android:id="@+id/label_last4"
+            android:textColor="#ffffff00"
+            android:textSize="30dp"
+            android:text="@string/one_boot_active_period"
+            android:gravity="center_vertical" />
+
+        <EditText
+            android:layout_width="70dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="#ffff5e3e"
+            android:ems="30"
+            android:id="@+id/last4_now"
+            android:gravity="center_vertical"
+            android:background="#fff6ff22"
+            android:textSize="30dp"
+            android:numeric="integer"
+            android:text="10"
+            android:layout_weight="0.2"
+            android:layout_gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.2"
+            android:id="@+id/editText7"
+            android:text="@string/minute"
+            android:textColor="#ffffff00"
+            android:textSize="30dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center_vertical" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/press_start_engine"
+        android:textStyle="bold|italic"
+        android:typeface="monospace"
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/start_engine_button"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textColor="#ffff181d"
+        android:focusable="true"
+        android:paddingBottom="10dp"
+        android:button="@android:color/holo_orange_light"
+        android:background="@drawable/shape_oval_green_large"
+        android:enabled="true"
+        android:textSize="30dp"
+        android:onClick="startEngine" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:textColor="#ffff181d"
+        android:text="@string/return_home"
+        android:id="@+id/return_to_main"
+        android:layout_gravity="center_horizontal"
+        android:textStyle="bold|italic"
+        android:background="@drawable/shape_oval_orange"
+        android:gravity="center"
+        android:textSize="30dp"
+        android:onClick="closeFragment"
+        android:layout_weight="0.12" />
+
+
+</LinearLayout>
+

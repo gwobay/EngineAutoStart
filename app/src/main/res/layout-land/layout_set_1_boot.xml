@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#ff000000">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.4">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_one_boot_set_date"
+        android:id="@+id/label_one_boot_set_date"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#ffff1a1a"
+        android:layout_weight="0.5" />
+
+    <View
+        android:layout_width="1dip"
+        android:background="#ff0000ff"
+        android:layout_height="match_parent"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/one_boot_set_date"
+        android:id="@+id/one_boot_pick_date"
+        android:onClick="pickDate"
+        android:layout_weight="0.5"
+        android:textSize="30dp" />
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.4">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/label_one_boot_set_time"
+        android:id="@+id/label_one_boot_set_time"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#ffff1a1a"
+        android:layout_weight="0.5" />
+
+    <View
+        android:layout_width="1dip"
+        android:background="#ff0000ff"
+        android:layout_height="match_parent"
+        android:layout_weight="0.02" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/one_boot_set_time"
+        android:id="@+id/one_boot_pick_time"
+        android:onClick="pickTime"
+        android:layout_weight="0.5"
+        android:textSize="30dp" />
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|right"
+        android:layout_weight="0.4">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:layout_weight="0.06"
+            android:id="@+id/label_last4"
+            android:textColor="#ffffffff"
+            android:textSize="25dp"
+            android:text="@string/one_boot_active_period"
+            android:layout_gravity="center"
+            android:gravity="center" />
+
+        <EditText
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="#ffff5e3e"
+            android:ems="30"
+            android:id="@+id/one_boot_last4"
+            android:layout_gravity="center"
+            android:background="#fff6ff22"
+            android:textSize="30dp"
+            android:text="15"
+            android:gravity="center" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="31dp"
+            android:layout_weight="0.1"
+            android:id="@+id/editText7"
+            android:text="@string/minute_long"
+            android:textColor="#ffffffff"
+            android:textSize="20dp"
+            android:gravity="center_horizontal"
+            android:layout_gravity="center" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="saveOneBootData"
+            android:padding="5dp"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_phone_entry"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textColor="@android:color/black"
+            android:background="@android:color/holo_orange_dark"
+            android:alpha="0.8"
+            android:capitalize="words"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="closeFragment"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

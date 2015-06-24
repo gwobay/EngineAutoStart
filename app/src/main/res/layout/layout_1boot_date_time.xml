@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:weightSum="1"
+    android:background="#ff88fff0"
+    android:gravity="center"
+    android:backgroundTintMode="src_atop">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="@string/one_boot_start_date"
+        android:id="@+id/textView4"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#ffff1a1a" />
+
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.05">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/week"
+            android:id="@+id/label_week"
+            android:layout_weight="0.3"
+            android:gravity="center_vertical|right"
+            android:layout_gravity="right"
+            android:textSize="10dp"
+            android:textColor="#ffff1509" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1"
+            android:id="@+id/day_of_week"
+            android:layout_weight="0.1"
+            android:layout_gravity="center_horizontal|right"
+            android:textSize="15dp"
+            android:textColor="#ffff1129"
+            android:gravity="center_horizontal" />
+
+        </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.18">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="75dp"
+            android:text="20"
+            android:id="@+id/textView3"
+            android:layout_weight="0.3"
+            android:gravity="center_vertical|right"
+            android:layout_gravity="right"
+            android:textSize="30dp"
+            android:textColor="#ffff1509" />
+
+        <ListView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/ListView_year"
+            android:layout_weight="0.3"
+            android:background="@drawable/shape_oval_orange"
+            android:backgroundTintMode="src_atop"
+            android:clickable="false"
+            android:fillViewport="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView"
+            android:text="@string/year"
+            android:textSize="30dp"
+            android:layout_weight="0.3"
+            android:layout_gravity="top|center_vertical" />
+
+        <ListView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/ListView_month"
+            android:layout_weight="0.3"
+            android:background="@drawable/shape_oval_orange"
+            android:backgroundTintMode="src_atop"
+            android:clickable="false"
+            android:fillViewport="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView2"
+            android:text="@string/month"
+            android:textSize="30dp" />
+
+        <ListView
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:id="@+id/ListView_day"
+            android:layout_weight="0.3"
+            android:background="@drawable/shape_oval_orange"
+            android:backgroundTintMode="src_atop"
+            android:clickable="false"
+            android:fillViewport="true"
+            android:layout_gravity="center_horizontal" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/TextView3"
+            android:text="@string/day"
+            android:textSize="30dp" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:text="@string/one_boot_start_time"
+        android:id="@+id/textView5"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textColor="#ffff22ca"
+        android:layout_gravity="top" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.13">
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/empty1"
+            android:text="  "
+            android:textSize="20dp" />
+
+    <ListView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/ListView_hour"
+        android:layout_weight="0.3"
+        android:background="@drawable/shape_oval_orange_large"
+        android:backgroundTintMode="src_atop"
+        android:clickable="false"
+        android:fillViewport="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/pick_minute"
+        android:text="@string/hour"
+        android:textSize="35dp" />
+
+    <ListView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:id="@+id/ListView_minute"
+        android:layout_weight="0.3"
+        android:background="@drawable/shape_oval_orange_large"
+        android:backgroundTintMode="src_atop"
+        android:clickable="false"
+        android:fillViewport="true"
+        android:layout_gravity="center_horizontal" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/minute"
+        android:text="@string/minute"
+        android:textSize="35dp" />
+
+        <TextView
+            android:layout_width="30dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/empty2"
+            android:text="  "
+            android:textSize="20dp" />
+
+</LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ff0000ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|right">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="0.06"
+            android:layout_gravity="left"
+            android:id="@+id/label_last4"
+            android:textColor="#ff000000"
+            android:textSize="25dp"
+            android:text="@string/one_boot_active_period" />
+
+        <EditText
+            android:layout_width="78dp"
+            android:layout_height="wrap_content"
+            android:inputType="number"
+            android:textColor="#ffff5e3e"
+            android:ems="30"
+            android:id="@+id/last4"
+            android:gravity="left"
+            android:layout_gravity="left"
+            android:background="#fff6ff22"
+            android:textSize="30dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.1"
+            android:layout_gravity="left|bottom"
+            android:id="@+id/editText7"
+            android:text="@string/minute_long"
+            android:textColor="#ff000000"
+            android:textSize="20dp"
+            android:gravity="center_horizontal" />
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <View
+        android:layout_width="match_parent"
+        android:background="#ffff00ff"
+        android:layout_height="2dip"
+        android:layout_weight="0.02" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_weight="0.2"
+        android:gravity="center">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/confirm"
+            android:id="@+id/button"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textStyle="bold"
+            android:textColor="#ffff351e"
+            android:background="#ff31ff47"
+            android:onClick="saveOneBootData"
+            android:padding="5dp"
+            android:textSize="30dp" />
+
+        <Space
+            android:layout_width="30px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cancel"
+            android:id="@+id/neglect_phone_entry"
+            android:gravity="center"
+            android:layout_weight="0.5"
+            android:textColor="#ff25c0ff"
+            android:background="#fff46f57"
+            android:alpha="0.8"
+            android:capitalize="words"
+            android:clickable="true"
+            android:textSize="30dp"
+            android:onClick="closeFragment"
+            android:padding="5dp" />
+
+    </LinearLayout>
+
+</LinearLayout>

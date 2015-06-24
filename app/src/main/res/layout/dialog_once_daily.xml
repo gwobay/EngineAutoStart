@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical">
+
+
+    <LinearLayout android:orientation="horizontal"
+        android:id="@+id/show_day"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_weight="0.15">
+
+    <Switch android:textSize="30dp"
+        android:id="@+id/set_it"
+        android:layout_width="109dp"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center"
+        android:layout_weight="0.5"
+        android:gravity="center"
+        android:textOff="@string/closed"
+        android:textOn="@string/open"
+        android:textColor="#ff0c0bff"
+        android:enabled="true"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:checked="false"
+        android:showText="true"
+        android:splitTrack="true"
+        android:background="#fc9f9f9f"
+        android:onClick="onRadioButtonClicked" />
+
+        <TextView android:textSize="26.0sp"
+            android:layout_gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/monday"
+            android:id="@+id/week_day"
+            android:gravity="end"
+            android:layout_weight="0.5" />
+
+        </LinearLayout>
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#ff2e0a76" />
+
+    <LinearLayout android:orientation="horizontal"
+        android:id="@+id/pick_time"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignWithParentIfMissing="true"
+        android:layout_weight="0.5">
+
+        <TextView android:textSize="26.0sp"
+            android:layout_gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="136dp"
+            android:text="@string/start_time"
+            android:id="@+id/label_start_time"
+            android:gravity="start" />
+
+        <TimePicker android:id="@+id/start_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="30.0dip" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#ff2e0a76" />
+
+    <LinearLayout android:id="@+id/set_variables"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.4"
+        android:gravity="fill_horizontal"
+        android:layout_gravity="center">
+        <TextView android:textSize="26.0sp"
+            android:layout_gravity="center_vertical|right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/active_time"
+            android:id="@+id/label_active_time"
+            android:layout_weight="0.4"
+            android:gravity="center" />
+
+        <Space
+            android:layout_width="40px"
+            android:layout_height="20px" />
+
+        <NumberPicker android:id="@+id/active_period"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:layout_weight="0.6" />
+
+        <Space
+            android:layout_width="60px"
+            android:layout_height="20px"
+            android:layout_weight="0.2" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="1dip"
+        android:background="#ff2e0a76" />
+
+
+</LinearLayout>

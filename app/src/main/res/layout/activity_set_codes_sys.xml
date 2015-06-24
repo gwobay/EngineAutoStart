@@ -1,0 +1,7 @@
+<fragment xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/set_profile_fragment"
+    android:name="com.prod.intelligent7.engineautostart.SetProfileActivityFragment"
+    tools:layout="@layout/fragment_set_sim"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" />
