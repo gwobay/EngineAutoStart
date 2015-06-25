@@ -252,7 +252,7 @@ public class ConnectDaemonService extends Service
     public int onStartCommand(Intent intent, int flags, int startId) {
         // The service is starting, due to a call to startService()
         if (intent!=null)
-            confirmJob(intent);
+            confirmJob(intent, flags, startId);
         return START_STICKY;//mStartMode;
     }
 
@@ -293,12 +293,13 @@ public class ConnectDaemonService extends Service
     }
     @Override
     public IBinder onBind(Intent intent) {
-        return confirmJob(intent);
+        return confirmJob(intent, 0, 0);
     }
 
     public static final String ALARM_DONE="alarm_done";
 
-    private IBinder confirmJob(Intent intent)
+    private static long lastStartTime=0;
+    private IBinder confirmJob(Intent intent, int flags, int startId)
     {
         // A client is binding to the service with bindService()
         String command=intent.getExtras().getString(DAEMON_COMMAND);
@@ -306,6 +307,13 @@ public class ConnectDaemonService extends Service
         //confirmDaemonAlive();
         if (command != null)
         {
+            if (command.length()<3) return null;
+            if (command.substring(0,2).equalsIgnoreCase("M5"))
+            {
+                long tm=new Date().getTime();
+                if (tm - lastStartTime < 3*60*1000) return null;
+                lastStartTime=tm;
+            }
             if (command.charAt(0)=='M') {
                 putInDaemonOutboundQ(command);
                 if (command.charAt(1)=='2' ||
@@ -371,6 +379,10 @@ public class ConnectDaemonService extends Service
                 //startOneBootAlarm();
                 break;
             case ALARM_NBOOT:
+                Log.i("ALARM_SET", "got recurring start intent");
+                GregorianCalendar gToday=new GregorianCalendar(TimeZone.getTimeZone(getResources().getString(R.string.my_time_zone_en)));
+                if (gToday.get(Calendar.HOUR_OF_DAY) >= 7 && gToday.get(Calendar.HOUR_OF_DAY) < 19)
+                    break;
                 String params=intent.getExtras().getString(ALARM_NBOOT);
                 int idx=params.indexOf("-");
                 long last4=Long.parseLong(params.substring(0, idx));
@@ -382,6 +394,7 @@ public class ConnectDaemonService extends Service
                 //if (heartBitIntent==null) startServerHearBeatAlarm();
                 if (oneBootIntent==null) startOneBootAlarm();
                 if (recurringBootIntent==null) startRecurringBootAlarm();
+                //reStartScheduleAlarms();
                 startHourlyCheckAlarm();
                 break;
             default:
@@ -544,6 +557,7 @@ public class ConnectDaemonService extends Service
         }
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
         //M1-00 (cool) or M1-01 (warm)
+        jIntent.setAction(ALARM_1BOOT);
         jIntent.putExtra(ConnectDaemonService.ALARM_DONE, ALARM_1BOOT);
         jIntent.putExtra(ConnectDaemonService.ALARM_1BOOT, bootParameter.substring(idx+1));
         oneBootIntent=PendingIntent.getService(this, ++boot1AlarmRequestId % 10 + 150, jIntent, PendingIntent.FLAG_ONE_SHOT);
@@ -564,7 +578,7 @@ public class ConnectDaemonService extends Service
         }
         recurringBootIntent=null;
         GregorianCalendar gToday=new GregorianCalendar(TimeZone.getTimeZone(getResources().getString(R.string.my_time_zone_en)));
-        if (gToday.get(Calendar.HOUR_OF_DAY) > 7 && gToday.get(Calendar.HOUR_OF_DAY) < 19)
+        if (gToday.get(Calendar.HOUR_OF_DAY) >= 7 && gToday.get(Calendar.HOUR_OF_DAY) < 19)
             return;
         String bootParameter=readBootParameter(99);
         Log.i("ALARM_SET", "got n boot parameters " + (bootParameter==null?"nothing":bootParameter));
@@ -572,7 +586,8 @@ public class ConnectDaemonService extends Service
         int idx=bootParameter.indexOf("-");
         if (idx < 0) return;
         long init_wait=Long.parseLong(bootParameter.substring(0, idx));
-        if (init_wait < 1000){
+        if (init_wait < 2000) //init_wait=2000;
+        {
             int ixx=bootParameter.indexOf("-", idx+1);
             long on_time=Long.parseLong(bootParameter.substring(idx+1, ixx));
             putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(on_time / 60000));
@@ -583,10 +598,14 @@ public class ConnectDaemonService extends Service
         }
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
         //M1-00 (cool) or M1-01 (warm)
+        jIntent.setAction(ALARM_NBOOT);
         jIntent.putExtra(ConnectDaemonService.ALARM_DONE, ALARM_NBOOT);
         jIntent.putExtra(ConnectDaemonService.ALARM_NBOOT, bootParameter.substring(idx+1));
         recurringBootIntent=PendingIntent.getService(this, ++nBootAlarmRequestId %100 + 200, jIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+init_wait, recurringBootIntent);
+        //alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + init_wait,
+                //on_time + off_time, recurringBootIntent);
+        //Log.i("ALARM_SET", "to start recurring boot in " + init_wait/60000);//+" with interval "+(on_time+off_time)/60000);
         Log.i("ALARM_SET", "to start recurring boot in " + init_wait / 60000);
         //startScheduledJobs();
     }
@@ -601,16 +620,17 @@ public class ConnectDaemonService extends Service
         }
         recurringBootIntent=null;
         GregorianCalendar gToday=new GregorianCalendar(TimeZone.getTimeZone(getResources().getString(R.string.my_time_zone_en)));
-        if (gToday.get(Calendar.HOUR_OF_DAY) > 7 && gToday.get(Calendar.HOUR_OF_DAY) < 21)
+        if (gToday.get(Calendar.HOUR_OF_DAY) >= 7 && gToday.get(Calendar.HOUR_OF_DAY) < 21)
             return;
         long total_wait=on_time+idle_interval;
-        String bootParameter=""+on_time+"-"+idle_interval;;
+        String bootParameter=""+on_time+"-"+idle_interval;
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
         //M1-00 (cool) or M1-01 (warm)
-        jIntent.putExtra(ConnectDaemonService.ALARM_DONE, NBOOT_PARAM);
-        jIntent.putExtra(ConnectDaemonService.NBOOT_PARAM, bootParameter);
+        jIntent.setAction(ALARM_NBOOT);
+        jIntent.putExtra(ConnectDaemonService.ALARM_DONE, ALARM_NBOOT);
+        jIntent.putExtra(ConnectDaemonService.ALARM_NBOOT, bootParameter);
         recurringBootIntent=PendingIntent.getService(this, ++nBootAlarmRequestId % 100 +300, jIntent, PendingIntent.FLAG_ONE_SHOT);
-        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()+total_wait, recurringBootIntent);
+        alarmManager.set(AlarmManager.RTC_WAKEUP, System.currentTimeMillis() + total_wait, recurringBootIntent);
         Log.i("ALARM_SET", "to start recurring boot in " + total_wait / 60000);
         //startScheduledJobs();
     }
@@ -641,6 +661,7 @@ public class ConnectDaemonService extends Service
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
         //M1-00 (cool) or M1-01 (warm)
         jIntent.putExtra(ConnectDaemonService.ALARM_DONE, ALARM_HOUR);
+        jIntent.setAction(ALARM_HOUR);
         scheduleAlarm=PendingIntent.getService(this, ++alarmRequestId % 100 + 500, jIntent, PendingIntent.FLAG_ONE_SHOT);
         alarmManager.set(AlarmManager.RTC_WAKEUP, 1 * 60 * 60 * 1000 + System.currentTimeMillis() , scheduleAlarm);
         Log.i("ALARM_SET", "restart check alarm set for 1 hour");
@@ -692,12 +713,13 @@ public class ConnectDaemonService extends Service
             if (mode_1_n == 1 || hrNow > 7) return null;
         }
         if (mode_1_n != 1 && hrNow < 7){
-            scheduleDay=ScheduleActivity.weekDays[(gToday.get(Calendar.DAY_OF_WEEK)+5) % 7]; //check if scheduled yesterday
             if (param != null){
                 int idd=param.indexOf("-");
                 int h0=Integer.parseInt(param.substring(idd+1, idd+3));
                 if (h0 > 7) param=null;
             }
+
+            scheduleDay=ScheduleActivity.weekDays[(gToday.get(Calendar.DAY_OF_WEEK)+5) % 7]; //check if scheduled yesterday
             if (param==null) {
                 for (int i = 0; i < aSet.size(); i++) {
                     if (allData[i].indexOf(scheduleDay) < 0) continue;
@@ -1127,6 +1149,60 @@ public class ConnectDaemonService extends Service
         sensorManager.unregisterListener(this);
     }
 
+    Handler myHandler;
+
+    long onTime;
+    long idleInterval;
+    long initWaitTime;
+    static final DecimalFormat dF=new DecimalFormat("00");
+
+    Runnable startOneTime=new Runnable() {
+        final long last4=onTime;
+        @Override
+        public void run() {
+            putInDaemonOutboundQ("M5-"+dF.format(last4));
+            myHandler.removeCallbacks(this);
+        }
+    };
+
+    Runnable startNTime=new Runnable() {
+        final long last4=onTime;
+        final long idleTime=idleInterval;
+        @Override
+        public void run() {
+            putInDaemonOutboundQ("M5-"+dF.format(last4));
+            myHandler.postDelayed(this, last4+idleTime);
+        }
+    };
+
+    void postOneBoot(){
+        myHandler.removeCallbacks(startOneTime);
+        String oneBootParameters=readBootParameter(1);
+        String[] params=oneBootParameters.split("-");
+        initWaitTime=Long.parseLong(params[0]);
+        if (initWaitTime > 3600*1000) return;
+        onTime=Long.parseLong(params[1]);
+        myHandler.postDelayed(startOneTime, initWaitTime);
+    }
+
+    void postNBoots(){
+        myHandler.removeCallbacks(startNTime);
+        GregorianCalendar gToday=new GregorianCalendar(TimeZone.getTimeZone(getResources().getString(R.string.my_time_zone_en)));
+        if (gToday.get(Calendar.HOUR_OF_DAY) > 7 && gToday.get(Calendar.HOUR_OF_DAY) < 19)
+            return;
+        String bootParameters=readBootParameter(99);
+        String[] params=bootParameters.split("-");
+        initWaitTime=Long.parseLong(params[0]);
+        if (initWaitTime > 3610*1000) return;
+        onTime=Long.parseLong(params[1]);
+        idleInterval=Long.parseLong(params[2]);
+        myHandler.postDelayed(startNTime, initWaitTime);
+    }
+
+    void rePostSchedule(){
+        postOneBoot();
+        postNBoots();
+    }
 }
 
     class OneTimeScheduler extends JobScheduler {
