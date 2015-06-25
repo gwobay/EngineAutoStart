@@ -123,16 +123,10 @@ public class SetProfileActivityFragment extends Fragment
                     return null;
                 }
                 retCommand="M2-"+oldPin+"-"+newPin+"-"+newPin;
-                Intent jIntent=new Intent(getActivity(), ConnectDaemonService.class);
-                //M1-00 (cool) or M1-01 (warm)
-                jIntent.putExtra(ConnectDaemonService.DAEMON_COMMAND, retCommand);
-                //Toast.makeText(this, "will send start command to server", Toast.LENGTH_LONG).show();
-                ((SetProfileActivity)getActivity()).startMyService(jIntent);
                 ((SetProfileActivity)getActivity()).setPreferenceValue(MainActivity.PENDING_NEW_PIN, line2.getText().toString());
-                //((SetProfileActivity)getActivity()).setPreferenceValue(MainActivity.SET_SIM, line1.getText().toString());
                 progressTitle=getResources().getString(R.string.sim_setting);
                 showProgress=true;
-                retcode="wait";
+                retcode=retCommand;//"wait";
                 break;
             case MainActivity.SET_PHONES:
                 line1=(EditText)mRootView.findViewById(R.id.text_phone1);
@@ -143,36 +137,18 @@ public class SetProfileActivityFragment extends Fragment
                 String pin=line0.getText().toString();
                 String newPhone1=line1.getText().toString();
                 String newPhone2=line2.getText().toString();
-                //
-                // no check any more, so you can add/modify the 2nd number
-                // if (savedPhone.equalsIgnoreCase(newPhone1)) badMsg=getResources().getString(R.string.phone_no_difference);
-                /*else
-                if (savedPin.charAt(0) != '-' && !pin.equalsIgnoreCase(savedPin))
-                    badMsg=getResources().getString(R.string.wrong_pin);*/
-               // if (badMsg.length() > 1){
-                  //  new MyToast(getActivity(), badMsg).show();
-                  //  return null;
-               // }
+
                 retCommand="M3-"+pin+"-"+newPhone1+"-"+newPhone2;
-                Intent jIntent2=new Intent(getActivity(), ConnectDaemonService.class);
-                //M1-00 (cool) or M1-01 (warm)
-                jIntent2.putExtra(ConnectDaemonService.DAEMON_COMMAND, retCommand);
-                //Toast.makeText(this, "will send start command to server", Toast.LENGTH_LONG).show();
-                ((SetProfileActivity)getActivity()).startMyService(jIntent2);
                 ((SetProfileActivity)getActivity()).setPreferenceValue(MainActivity.PENDING_NEW_PHONE1, line1.getText().toString());
                 ((SetProfileActivity)getActivity()).setPreferenceValue(MainActivity.PENDING_NEW_PHONE2, line2.getText().toString());
                 progressTitle=getResources().getString(R.string.phone_numbers_setting);
                 showProgress=true;
-                retcode="wait";
+                retcode=retCommand;//"wait";
                 break;
             default :
                 getActivity().finish();
                 break;
         }
-
-        //if (actionString==MainActivity.SET_PIN && actionString!=MainActivity.SET_PHONES)
-           // return "OK";
-
 
         return retcode;
     }

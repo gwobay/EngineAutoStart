@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="compiled_at">2015/06/25 08:50</string>
+    <string name="compiled_at">2015/06/26 01:30</string>
 
     <!-- for main page /-->
     <string name="app_name">远程汽车调温系统</string>

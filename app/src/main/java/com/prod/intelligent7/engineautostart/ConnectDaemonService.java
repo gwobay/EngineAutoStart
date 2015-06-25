@@ -272,13 +272,21 @@ public class ConnectDaemonService extends Service
         if (command == null) return;
 
         if (command.charAt(0)=='M') {
-            putInDaemonOutboundQ(command);
-            if (command.charAt(1)=='2' ||
-                    command.charAt(1)=='3') {
-                serverHeartBit=10*1000;
+
+            if (command.length() > 2 && command.charAt(1) == '5') {
+                long tm = new Date().getTime();
+
+                if (tm - lastStartTime < 3 * 60 * 1000) return;
+                lastStartTime = tm;
             }
-            urgentMailBox.clear();
-            return ;//new LocalBinder();
+
+            putInDaemonOutboundQ(command);
+
+            if (command.charAt(1) == '2' ||
+                    command.charAt(1) == '3') {
+                serverHeartBit = 15 * 1000;
+                urgentMailBox.clear();
+            }
         }
 
         if (command.indexOf("DISMISSED") >= 0) { //when no response after timeout
@@ -296,6 +304,9 @@ public class ConnectDaemonService extends Service
         return confirmJob(intent, 0, 0);
     }
 
+    public static final String GET_BINDER="GET_BINDER";
+    public static final String SERVICE_TYPE="9SERVICE_TYPE";
+    public static final String URGENT="0URGENT";
     public static final String ALARM_DONE="alarm_done";
 
     private static long lastStartTime=0;
@@ -308,25 +319,37 @@ public class ConnectDaemonService extends Service
         if (command != null)
         {
             if (command.length()<3) return null;
+            if (command.equalsIgnoreCase(GET_BINDER)) {
+                String sType=intent.getExtras().getString(SERVICE_TYPE);
+                if (sType != null && sType.equalsIgnoreCase(URGENT)){
+                    serverHeartBit = 10 * 1000;
+                    urgentMailBox.clear();
+                }
+                return new UrgentMailBinder();
+            }
             if (command.substring(0,2).equalsIgnoreCase("M5"))
             {
                 long tm=new Date().getTime();
+
                 if (tm - lastStartTime < 3*60*1000) return null;
                 lastStartTime=tm;
             }
             if (command.charAt(0)=='M') {
                 putInDaemonOutboundQ(command);
+                /*
                 if (command.charAt(1)=='2' ||
                         command.charAt(1)=='3') {
                     //mDaemon.notUrgent=false;
-                    serverHeartBit=10*1000;
+                    serverHeartBit = 10 * 1000;
                     //mDaemon.resetHeartBeatInterval(serverHeartBit);
                     //startServerHearBeatAlarm();
-                }
-                urgentMailBox.clear();
-                urgentMailBox.add(command);
 
-                return new UrgentMailBinder();//new LocalBinder();
+                    urgentMailBox.clear();
+                    urgentMailBox.add("MAIL SENT");
+
+                    return new UrgentMailBinder();//new LocalBinder();
+                }
+                */
             }
             /* as of now checked inside the mail by send daemon
             if (command.indexOf("URGENT") > 0) {
