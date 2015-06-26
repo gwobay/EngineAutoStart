@@ -181,8 +181,8 @@ public class ConnectDaemonService extends Service
             mHost=getResources().getString(R.string.prod_server);
             mPort=getResources().getString(R.string.port);
         }
-        mDaemon=//TcpConnectDaemon.getInstance(mHost, Integer.parseInt(mPort));//
-        new TcpConnectDaemon(mHost, Integer.parseInt(mPort));
+        mDaemon=TcpConnectDaemon.getInstance(mHost, Integer.parseInt(mPort));//
+        //new TcpConnectDaemon(mHost, Integer.parseInt(mPort));
         if (mDaemon==null) return;
         mDaemon.setModeInterval(TcpConnectDaemon.MODE_REPEAT, serverHeartBit);
 
@@ -272,14 +272,15 @@ public class ConnectDaemonService extends Service
         if (command == null) return;
 
         if (command.charAt(0)=='M') {
+            long tm = new Date().getTime();
 
             if (command.length() > 2 && command.charAt(1) == '5') {
-                long tm = new Date().getTime();
 
-                if (tm - lastStartTime < 3 * 60 * 1000) return;
+                if (tm - lastStartTime < 4 * 60 * 1000) return;
+
                 lastStartTime = tm;
             }
-
+            Log.w("SERVICEDAEMON", "EXEC "+command+" at "+tm);
             putInDaemonOutboundQ(command);
 
             if (command.charAt(1) == '2' ||
@@ -301,7 +302,7 @@ public class ConnectDaemonService extends Service
     }
     @Override
     public IBinder onBind(Intent intent) {
-        return confirmJob(intent, 0, 0);
+        return confirmJob(intent, 0, -1);
     }
 
     public static final String GET_BINDER="GET_BINDER";
@@ -319,6 +320,7 @@ public class ConnectDaemonService extends Service
         if (command != null)
         {
             if (command.length()<3) return null;
+            intent.putExtra(DAEMON_COMMAND, "EXECUTED");
             if (command.equalsIgnoreCase(GET_BINDER)) {
                 String sType=intent.getExtras().getString(SERVICE_TYPE);
                 if (sType != null && sType.equalsIgnoreCase(URGENT)){
@@ -327,61 +329,8 @@ public class ConnectDaemonService extends Service
                 }
                 return new UrgentMailBinder();
             }
-            if (command.substring(0,2).equalsIgnoreCase("M5"))
-            {
-                long tm=new Date().getTime();
-
-                if (tm - lastStartTime < 3*60*1000) return null;
-                lastStartTime=tm;
-            }
-            if (command.charAt(0)=='M') {
-                putInDaemonOutboundQ(command);
-                /*
-                if (command.charAt(1)=='2' ||
-                        command.charAt(1)=='3') {
-                    //mDaemon.notUrgent=false;
-                    serverHeartBit = 10 * 1000;
-                    //mDaemon.resetHeartBeatInterval(serverHeartBit);
-                    //startServerHearBeatAlarm();
-
-                    urgentMailBox.clear();
-                    urgentMailBox.add("MAIL SENT");
-
-                    return new UrgentMailBinder();//new LocalBinder();
-                }
-                */
-            }
-            /* as of now checked inside the mail by send daemon
-            if (command.indexOf("URGENT") > 0) {
-                if (mDaemon.isAlive()) mDaemon.resetHeartBeatInterval(10*1000);
-                return null;
-            }*/
-            if (command.indexOf("DISMISSED") >= 0) { //when no response after timeout
-                serverHeartBit=60*1000;
-                //if (mDaemon.isAlive()) mDaemon.resetHeartBeatInterval(serverHeartBit);
-                return null;
-            }
-            if (command.indexOf("SCHEDULE")>=0 ) {
-                reStartScheduleAlarms();
-                return null;
-            }
-
-            /*
-
-            if (command.indexOf(ALARM_DONE) >=0)
-            {
-                Log.i("ALARM_SET", "Alarm Manager done");
-                String
-                //startScheduleAlarm();
-            }
-            else if (command.indexOf(ALARM_BIT) >=0){
-                startServerHearBeatAlarm();
-            }
-            else {
-                stopScheduledJobs();
-                startScheduledJobs();
-            }
-            */
+            sendCommand(command);
+            return null;
         }
         command=intent.getExtras().getString(ALARM_DONE);
         if (command == null) return null;
@@ -391,14 +340,14 @@ public class ConnectDaemonService extends Service
         switch(command){
             case ALARM_BIT:
                 //mDaemon.hasCommand=true;
-                mDaemon.interrupt();
+                //mDaemon.interrupt();
                 confirmDaemonAlive();
                 //startServerHearBeatAlarm();
                 break;
             case ALARM_1BOOT:
                 String param=intent.getExtras().getString(ALARM_1BOOT);
                 long on_time=Long.parseLong(param);
-                putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(on_time / 60000));
+                sendCommand("M5-" + new DecimalFormat("00").format(on_time / 60000));
                 //startOneBootAlarm();
                 break;
             case ALARM_NBOOT:
@@ -409,7 +358,7 @@ public class ConnectDaemonService extends Service
                 String params=intent.getExtras().getString(ALARM_NBOOT);
                 int idx=params.indexOf("-");
                 long last4=Long.parseLong(params.substring(0, idx));
-                putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(last4 / 60000));
+                sendCommand("M5-" + new DecimalFormat("00").format(last4 / 60000));
                 long off_time=Long.parseLong(params.substring(idx + 1));
                 setRecurringBootAlarm(last4, off_time);
                 break;
@@ -575,7 +524,7 @@ public class ConnectDaemonService extends Service
         long init_wait=Long.parseLong(bootParameter.substring(0, idx));
         if (init_wait < 10000){
             long on_time=Long.parseLong(bootParameter.substring(idx+1));
-            putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(on_time / 60000));
+            sendCommand("M5-" + new DecimalFormat("00").format(on_time / 60000));
             return;
         }
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
@@ -613,7 +562,7 @@ public class ConnectDaemonService extends Service
         {
             int ixx=bootParameter.indexOf("-", idx+1);
             long on_time=Long.parseLong(bootParameter.substring(idx+1, ixx));
-            putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(on_time / 60000));
+            sendCommand("M5-" + new DecimalFormat("00").format(on_time / 60000));
 
             long off_time=Long.parseLong(bootParameter.substring(ixx+1));
             setRecurringBootAlarm(on_time, off_time);
@@ -645,7 +594,7 @@ public class ConnectDaemonService extends Service
         GregorianCalendar gToday=new GregorianCalendar(TimeZone.getTimeZone(getResources().getString(R.string.my_time_zone_en)));
         if (gToday.get(Calendar.HOUR_OF_DAY) >= 7 && gToday.get(Calendar.HOUR_OF_DAY) < 21)
             return;
-        long total_wait=on_time+idle_interval;
+        long total_wait=idle_interval;//on_time+idle_interval;
         String bootParameter=""+on_time+"-"+idle_interval;
         Intent jIntent=new Intent(this, ConnectDaemonService.class);
         //M1-00 (cool) or M1-01 (warm)
@@ -789,7 +738,7 @@ public class ConnectDaemonService extends Service
         long off_time=1000*3600*Integer.parseInt(terms[3]); //in milli secs
 
         while (init_wait < 0){
-            init_wait += (on_time+off_time);
+            init_wait += off_time;//(on_time+off_time);
         }
 
         retS = "" + init_wait + "-" + on_time + "-" +off_time;
@@ -1183,7 +1132,7 @@ public class ConnectDaemonService extends Service
         final long last4=onTime;
         @Override
         public void run() {
-            putInDaemonOutboundQ("M5-"+dF.format(last4));
+            sendCommand("M5-"+dF.format(last4));
             myHandler.removeCallbacks(this);
         }
     };
@@ -1193,7 +1142,7 @@ public class ConnectDaemonService extends Service
         final long idleTime=idleInterval;
         @Override
         public void run() {
-            putInDaemonOutboundQ("M5-"+dF.format(last4));
+            sendCommand("M5-"+dF.format(last4));
             myHandler.postDelayed(this, last4+idleTime);
         }
     };

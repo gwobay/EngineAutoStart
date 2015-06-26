@@ -444,7 +444,7 @@ boolean imNewUser;
                 //M1-00 (cool) or M1-01 (warm)
                 jIntent2.putExtra(ConnectDaemonService.DAEMON_COMMAND, cmd);
                 //Toast.makeText(this, "will send start command to server", Toast.LENGTH_LONG).show();
-                getActivity().startService(jIntent2);
+                //getActivity().startService(jIntent2);
 
                 ((LinearLayout)mRootView).removeAllViews();
                 getMyScreenSize();

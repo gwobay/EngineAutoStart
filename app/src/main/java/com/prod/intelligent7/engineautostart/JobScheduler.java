@@ -64,10 +64,10 @@ public class JobScheduler extends Thread{
     }
     protected void sendStartCommand(long forHowLong){
         if (forHowLong > 0)
-            ((ConnectDaemonService)mContext).putInDaemonOutboundQ("M5-" + new DecimalFormat("00").format(forHowLong)); //in minute
+            ((ConnectDaemonService)mContext).sendCommand("M5-" + new DecimalFormat("00").format(forHowLong)); //in minute
     }
     protected void sendStopCommand(){
-        ((ConnectDaemonService)mContext).putInDaemonOutboundQ("M4-00");
+        ((ConnectDaemonService)mContext).sendCommand("M4-00");
     }
 
     protected void readParameter()

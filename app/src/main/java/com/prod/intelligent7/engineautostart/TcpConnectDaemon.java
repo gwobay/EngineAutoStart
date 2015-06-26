@@ -101,19 +101,29 @@ public class TcpConnectDaemon extends Thread {
 	 *
 	 */
 	private static int instanceCount=0;
+	static TcpConnectDaemon currentDaemon=null;
 	public static TcpConnectDaemon getInstance(String server, int port)
 	{
-		if (instanceCount > 0) return null;
-		instanceCount=1;
-		return new TcpConnectDaemon(server, port);
+		while (currentDaemon != null && currentDaemon.isAlive()) {
+			try {
+				currentDaemon.join();
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
+		}
+		currentDaemon=new TcpConnectDaemon(server, port);
+		instanceCount = 1;
+
+		return currentDaemon;
 	}
+
 	@SuppressWarnings("unused")
 	private TcpConnectDaemon() {
 	}
 
 	;
 
-	public TcpConnectDaemon(String server, int port) {
+	private TcpConnectDaemon(String server, int port) {
 		mHost = server;
 		mPort = port;
 		mySocket = null;
@@ -122,7 +132,7 @@ public class TcpConnectDaemon extends Thread {
 		init();
 	}
 
-	public TcpConnectDaemon(Socket clientSkt) {
+	private TcpConnectDaemon(Socket clientSkt) {
 		// TODO Auto-generated constructor stub
 		if (clientSkt == null) return;
 		mySocket = new SimpleSocket(clientSkt);
@@ -385,7 +395,7 @@ public class TcpConnectDaemon extends Thread {
 				}
 			} else //no more data for server
 			{
-				while (outBoundDataQ.size() > 0) { //check again make sure no data
+				/*while (outBoundDataQ.size() > 0) { //check again make sure no data
 					try {
 						toSend.add(outBoundDataQ.take());
 					} catch (InterruptedException e1) {
@@ -394,6 +404,7 @@ public class TcpConnectDaemon extends Thread {
 					}
 				}
 				if (toSend.size() > 0) continue;
+				*/
 				//send last token
 				socketSendData(myToken + "$");
 				try {
@@ -581,17 +592,21 @@ public class TcpConnectDaemon extends Thread {
 		saveMyDataToDb("DAEMON GONE");
 		//thisDying();
 		*/
-		instanceCount=0;
+
 	}
 
 	public void run(){
 		PowerManager.WakeLock wlR=((PowerManager) mContext.getSystemService(Context.POWER_SERVICE))
 					.newWakeLock(PowerManager.PARTIAL_WAKE_LOCK, "KEEP_THREAD_ALIVE");
 		wlR.acquire();
+
 		startJob();
 		((ConnectDaemonService)mContext).startServerHearBeatAlarm();
+		instanceCount=0;
+
 		wlR.release();
 	}
+	/*
 	@Override
 	public void interrupt()
 	{
@@ -601,6 +616,7 @@ public class TcpConnectDaemon extends Thread {
 		}
 		super.interrupt();
 	}
+	*/
 	/* databse staff starts here
 	*
 	 */

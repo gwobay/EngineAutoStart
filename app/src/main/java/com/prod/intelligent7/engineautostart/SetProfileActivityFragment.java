@@ -56,11 +56,13 @@ public class SetProfileActivityFragment extends Fragment
                 break;
         }
         mRootView= inflater.inflate(mCurrentLayout, container, false);
+        String tmp;
         switch (iWhichCode){
             case MainActivity.SET_SIM:
                 EditText line1=(EditText)(mRootView.findViewById(R.id.sim_text));
-                String sim=((SetProfileActivity) getActivity()).getSavedValue(MainActivity.SET_SIM);
-                if (sim.charAt(0)=='-') sim="";
+                String sim;
+                tmp=((SetProfileActivity) getActivity()).getSavedValue(MainActivity.SET_SIM);
+                if (tmp.charAt(0)=='-') sim=""; else sim=tmp;
                 line1.setText(sim);
                 break;
             case MainActivity.SET_PIN:
@@ -68,13 +70,13 @@ public class SetProfileActivityFragment extends Fragment
                 break;
             case MainActivity.SET_PHONES:
                 EditText lineP1=(EditText)(mRootView.findViewById(R.id.text_phone1));
-                String p1=((SetProfileActivity)getActivity()).getSavedValue(MainActivity.SET_PHONE1);
-                if (p1.charAt(0)=='-') p1="";
+                String p1;
+                tmp=((SetProfileActivity)getActivity()).getSavedValue(MainActivity.SET_PHONE1);
+                if (tmp.charAt(0)=='-') p1=""; else p1=tmp;
                 lineP1.setText(p1);
                 lineP1=(EditText)(mRootView.findViewById(R.id.text_phone2));
-                p1=((SetProfileActivity)getActivity()).getSavedValue(MainActivity.SET_PHONE2);
-                if (p1.charAt(0)=='-') p1="";
-                lineP1.setText(p1);
+                tmp=((SetProfileActivity)getActivity()).getSavedValue(MainActivity.SET_PHONE2);
+                if (tmp.charAt(0)!='-') lineP1.setText(tmp);
                 break;
             default :
                 //getActivity().finish();

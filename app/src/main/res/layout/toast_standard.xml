@@ -13,6 +13,6 @@
             android:layout_height="wrap_content"
             android:textSize="30px"
             android:textColor="#ff020005"
-            android:background="@drawable/standard140x100" />
+            android:background="@drawable/my_toast_info" />
 
 </LinearLayout>

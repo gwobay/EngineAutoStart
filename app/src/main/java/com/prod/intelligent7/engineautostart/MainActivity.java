@@ -945,11 +945,14 @@ public class MainActivity extends AppCompatActivity
         SharedPreferences mSPF = getSharedPreferences(fileName, Context.MODE_PRIVATE);
         //SharedPreferences.Editor editor = mSPF.edit();//prefs.edit();
        // String pwd=MainActivity.SET_PIN;//getResources().getString(R.string.pin_setting);
-        return mSPF.getString(key, "--");
+        String tmp=mSPF.getString(key, "--");
+        if (tmp.length() < 1) tmp="--";
+        return tmp;
     }
 
     public void setPreferenceValue(String key, String value) //default is "--"
     {
+        if (value == null || value.length()<1) return;
         String fileName=package_name+".profile";//getApplication().getPackageName()+".profile";
         SharedPreferences mSPF = getSharedPreferences(fileName, Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = mSPF.edit();//prefs.edit();
